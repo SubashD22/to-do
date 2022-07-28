@@ -1,7 +1,7 @@
-import React,{useState,useEffect} from "react";
+import React,{useEffect, useReducer} from "react";
 
-export default (key,defaultval) =>{
-    const [state,setState]=useState(()=>{
+export default (key,defaultval,reducer) =>{
+    const [state,dispatch]=useReducer(reducer,defaultval,()=>{
 
         let val;
         try{
@@ -10,9 +10,9 @@ export default (key,defaultval) =>{
             val = defaultval
         }
         return val
-    })
+    });
     useEffect(()=>{
         window.localStorage.setItem(key,JSON.stringify(state))
     },[state]);
-    return[state,setState]
+    return[state,dispatch]
 }

@@ -1,13 +1,19 @@
-import React, { createContext } from "react";
-import useTodoState from "../hooks/useTodoState";
+import React, { createContext,} from "react";
+import localstorageReducer from "../hooks/localstorageReducer";
+import TodoReducer from "../reducers/TodoReducers";
 const initialval = [{task:"hello There", id:1, conpleted:false}]
 export const TodoContext = createContext();
+export const DispatchContext = createContext();
+
 
 export function TodoProvider(props){
-    const TodoStuff = useTodoState(initialval);
+    const [todos,dispatch] = localstorageReducer("todos",initialval,TodoReducer,);
     return(
-       <TodoContext.Provider value={{...TodoStuff}}>
+       <TodoContext.Provider value={{todos}}>
+        <DispatchContext.Provider value={{dispatch}}>
         {props.children}
+        </DispatchContext.Provider>
+        
        </TodoContext.Provider>
     )
 }
