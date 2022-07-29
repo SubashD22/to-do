@@ -1,6 +1,6 @@
-import { Paper, Typography, AppBar, Toolbar,Grid, Switch} from "@mui/material";
-import React, { useContext } from "react";
-import { DarkModeProvider,DarkmodeContext } from "./context/darkmodeContext";
+import { Typography, AppBar, Toolbar,Grid} from "@mui/material";
+import React from "react";
+import { DarkModeProvider} from "./context/darkmodeContext";
 import { TodoProvider} from "./context/todoContext";
 import DarkmoderPaper from "./ModePaper";
 import DarkmodeSwitch from "./switch";
