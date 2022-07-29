@@ -2,11 +2,17 @@ import React,{useContext} from "react";
 import { TodoContext } from "./context/todoContext";
 import Todo from "./Todo";
 import {Paper,List,Divider} from "@mui/material";
+import { DarkmodeContext } from "./context/darkmodeContext";
+
 function TodoList(){
+    const {mode}= useContext(DarkmodeContext)
     const {todos} = useContext(TodoContext)
     return(
         todos.length ? (
-        <Paper>
+        <Paper
+        style={{
+            backgroundColor:mode ? "#c5c5c5": "#fafafa"
+          }}>
             <List>
             {
              todos.map((todo,i) =>(

@@ -1,23 +1,21 @@
-import { Paper, Typography, AppBar, Toolbar,Grid} from "@mui/material";
-import React from "react";
+import { Paper, Typography, AppBar, Toolbar,Grid, Switch} from "@mui/material";
+import React, { useContext } from "react";
+import { DarkModeProvider,DarkmodeContext } from "./context/darkmodeContext";
 import { TodoProvider} from "./context/todoContext";
+import DarkmoderPaper from "./ModePaper";
+import DarkmodeSwitch from "./switch";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 
 function TodoApp(){
-    //const initialList = [];
-    //const{todos,addTodo,removeTodo,toggleTodo,updateTodo} = useTodoState(initialList);
+  
     return(
-    <Paper style=
-     {{
-        padding: 0,
-        margin:0,
-        height:"100vh",
-        backgroundColor:"#fafafa"
-     }} elevation={0}>
+    <DarkModeProvider>
+        <DarkmoderPaper>
       <AppBar color="primary" position="static" style={{height:"64px"}}>
         <Toolbar>
             <Typography>TodoApp</Typography>
+            <DarkmodeSwitch />
         </Toolbar>
         </AppBar>
         <Grid container justifyContent={"center"} style={{marginTop:"1rem"}}>
@@ -32,7 +30,9 @@ function TodoApp(){
       </Grid>
         
        
-    </Paper>
+    </DarkmoderPaper>
+    </DarkModeProvider>
+    
   )
 }
 
