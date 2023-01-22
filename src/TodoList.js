@@ -7,6 +7,7 @@ import { DarkmodeContext } from "./context/darkmodeContext";
 function TodoList(){
     const {mode}= useContext(DarkmodeContext)
     const {todos} = useContext(TodoContext)
+    console.log(JSON.stringify(todos))
     return(
         todos.length ? (
         <Paper
