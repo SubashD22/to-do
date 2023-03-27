@@ -1,7 +1,7 @@
 import React, { createContext,} from "react";
 import localstorageReducer from "../hooks/localstorageReducer";
 import TodoReducer from "../reducers/TodoReducers";
-const initialval = [{task:"hello There", id:1, conpleted:false}]
+const initialval = []
 export const TodoContext = createContext();
 export const DispatchContext = createContext();
 
